@@ -1,0 +1,52 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+
+  {{ super() }}
+
+  <h3>Digital Analytics Program configuration parameters </h3>
+
+  <h4> Required parameters for tracking</h4>
+  {{ form.input('ckanext.dap.agency', id='field-ckanext.dap.agency', label=_('Agency code'), value=data['ckanext.dap.agency'], error=errors['ckanext.dap.agency']) }}
+
+  <h4>Optional parameters for tracking</h4>
+
+  {{ form.input('ckanext.dap.subagency', id='field-ckanext.dap.subagency', label=_('Subagency'), value=data['ckanext.dap.subagency'], error=errors['ckanext.dap.subagency']) }}
+
+  {{ form.input('ckanext.dap.platform', id='field-ckanext.dap.platform', label=_('Platform'), value=data['ckanext.dap.platform'], error=errors['ckanext.dap.platform']) }}
+
+  {{ form.input('ckanext.dap.topic', id='field-ckanext.dap.topic', label=_('Site topic'), value=data['ckanext.dap.topic'], error=errors['ckanext.dap.topic']) }}
+
+  
+{% endblock %}
+
+
+{% block admin_form_help %}
+
+  {{ super() }}
+
+  <p>Digital Analytics Program parameters are described in the 
+    <a href="https://github.com/digital-analytics-program/gov-wide-code">
+        Digital Analytics Program Government-wide Code</a> repository 
+        on GitHub and the 
+        <a href="https://open.gsa.gov/api/dap/">DAP API</a>
+        documentation on the open.gsa.gov website.</p>
+
+  <p><strong>Agency code:</strong> The abbreviation code for the 
+    Federal Agency to associate with tracking events.</p>
+
+  <p><strong>Subagency:</strong> An optional organization code or name 
+    for distinguishing tracking events within an agency.</p>
+
+  <p><strong>Platform:</strong> An optional code or name for grouping 
+    events from a set of related websites.</p>
+
+   <p><strong>Site topic:</strong> An optional text tag for grouping 
+    tracking events by topic or theme, regardless of the agency or
+    subagency hosting the site. For example, "health" can be used to
+    group tracking events on health-related sites across Federal 
+    Agencies or subagencies.</p>
+
+{% endblock %}

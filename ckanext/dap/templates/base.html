@@ -1,0 +1,15 @@
+{% ckan_extends %}
+
+{% block links %}
+    {{ super() }}
+    {% block digital_analytics_program_header %}
+        {{ h.analytics_header() }}
+    {% endblock %}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {% block digital_analytics_program_event_tracking %}
+        {% include 'dap/snippets/dap_event_tracking_resource.html' %}
+    {% endblock %}
+{% endblock %}

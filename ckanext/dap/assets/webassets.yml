@@ -1,0 +1,5 @@
+event_tracking:
+  filters: rjsmin
+  output: ckanext-dap/dap_event_tracking.js
+  contents:
+    - dap_event_tracking.js
